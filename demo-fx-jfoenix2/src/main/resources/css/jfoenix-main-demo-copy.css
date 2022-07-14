@@ -1,0 +1,202 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*******************************************************************************
+*                                                                              *
+* JFX Hamburger Icon                                                           *
+*                                                                              *
+*******************************************************************************/
+
+.jfx-hamburger {
+    -fx-padding: 10.0;
+    -fx-spacing: 4px;
+    -fx-cursor: hand;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*******************************************************************************
+ *                                                                             *
+ * JFX Tool Bar                                                                *
+ *                                                                             *
+ ******************************************************************************/
+
+.jfx-tool-bar {
+    -fx-font-size: 20.0;
+    -fx-font-weight: BOLD;
+    -fx-background-color: #5264AE;
+    -fx-pref-width: 100.0%;
+    -fx-pref-height: 64.0px;
+}
+
+.jfx-tool-bar HBox {
+    -fx-alignment: center;
+    -fx-spacing: 25.0;
+    -fx-padding: 0.0 10.0;
+}
+
+.jfx-tool-bar Label {
+    -fx-text-fill: WHITE;
+}
+
+.jfx-tool-bar .jfx-options-burger {
+    -fx-padding: 22px;
+}
+
+.jfx-tool-bar .jfx-options-burger StackPane {
+    -fx-pref-width: 4px;
+}
+
+/*.jfx-tool-bar .jfx-rippler {*/
+/*    -jfx-rippler-fill: WHITE;*/
+/*}*/
