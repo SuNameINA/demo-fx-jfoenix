@@ -1,10 +1,14 @@
-package com.example;
+package com.example.controller;
 
 import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXHamburger;
+import com.jfoenix.controls.JFXPopup;
 import javafx.animation.Transition;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.StackPane;
+
+import java.io.IOException;
 
 public class MainController {
 
@@ -17,20 +21,16 @@ public class MainController {
     @FXML
     private StackPane titleBurgerContainer;
 
-    private int titleBurgerRate = 1;
-
-//    @FXML
-//    private void onClickTitleBurger(MouseEvent event) {
-//        System.out.println(event);
-//        titleBurgerRate = titleBurgerRate * -1;
-//        this.changeHamburger(titleBurger, titleBurgerRate);
-//    }
+    private JFXPopup toolbarPopup;
 
     @FXML
-    public void initialize() {
+    private StackPane optionsBurger;
+
+    @FXML
+    public void initialize() throws IOException {
         System.out.println("1111111111111111111");
-        titleBurgerRate = titleBurgerRate * -1;
-        this.changeHamburger(titleBurger, titleBurgerRate);
+//        titleBurgerRate = titleBurgerRate * -1;
+//        this.changeHamburger(titleBurger, titleBurgerRate);
 
         drawer.setOnDrawerOpening(e -> {
             System.out.printf("drawer.onDrawerOpening...");
@@ -49,6 +49,16 @@ public class MainController {
             } else {
                 drawer.close();
             }
+        });
+
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/Main-Pop.fxml"));
+        toolbarPopup = new JFXPopup(loader.load());
+        optionsBurger.setOnMouseClicked(e -> {
+            toolbarPopup.show(optionsBurger,
+                    JFXPopup.PopupVPosition.TOP,
+                    JFXPopup.PopupHPosition.RIGHT,
+                    -12,
+                    15);
         });
     }
 

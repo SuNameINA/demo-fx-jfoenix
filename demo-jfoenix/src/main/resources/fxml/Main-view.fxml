@@ -12,12 +12,12 @@
 <?import com.jfoenix.controls.JFXDrawer?>
 <?import java.lang.String?>
 <StackPane fx:id="root" xmlns:fx="http://javafx.com/fxml/1"
-           xmlns="http://javafx.com/javafx/2.2" fx:controller="com.example.MainController">
+           xmlns="http://javafx.com/javafx/2.2" fx:controller="com.example.controller.MainController">
     <!--        <stylesheets>-->
-    <!--            <URL value="@/css/com/example/jfoenix-main-demo.css"></URL>-->
+    <!--            <URL value="@/css/jfoenix-main-demo.css"></URL>-->
     <!--        </stylesheets>-->
     <stylesheets>
-        <URL value="@/css/com/example/jfoenix-main-demo-copy.css"></URL>
+        <URL value="@/css/jfoenix-main-demo-copy.css"></URL>
     </stylesheets>
     <BorderPane>
         <top>

@@ -1,5 +1,6 @@
 package com.example;
 
+import com.example.hello.HelloApplication;
 import com.jfoenix.assets.JFoenixResources;
 import javafx.application.Application;
 import javafx.collections.ObservableList;
@@ -13,8 +14,7 @@ public class MainApp extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getClassLoader().getResource("fxml/com/example/Main-view.fxml"));
-
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getClassLoader().getResource("fxml/Main-view.fxml"));
 
         double width = 800;
         double heigh = 600;
