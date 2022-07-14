@@ -10,7 +10,10 @@ module com.example.fxjfoenix2 {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires com.jfoenix;
 
     opens com.example.fxjfoenix2 to javafx.fxml;
     exports com.example.fxjfoenix2;
+    exports com.example.fxjfoenix2.controller;
+    opens com.example.fxjfoenix2.controller to javafx.fxml;
 }
