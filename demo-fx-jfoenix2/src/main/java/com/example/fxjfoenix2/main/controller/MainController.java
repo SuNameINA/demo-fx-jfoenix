@@ -1,4 +1,4 @@
-package com.example.fxjfoenix2.controller;
+package com.example.fxjfoenix2.main.controller;
 
 import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXHamburger;

@@ -12,8 +12,16 @@ module com.example.fxjfoenix2 {
     requires com.almasb.fxgl.all;
     requires com.jfoenix;
 
-    opens com.example.fxjfoenix2 to javafx.fxml;
     exports com.example.fxjfoenix2;
-    exports com.example.fxjfoenix2.controller;
-    opens com.example.fxjfoenix2.controller to javafx.fxml;
+    exports com.example.fxjfoenix2.main.controller;
+    exports com.example.fxjfoenix2.hello.controller;
+
+    opens com.example.fxjfoenix2;
+    opens com.example.fxjfoenix2.main.controller;
+    opens com.example.fxjfoenix2.hello.controller;
+
+    opens fxml.main;
+    opens fxml.hello;
+    opens css;
+
 }

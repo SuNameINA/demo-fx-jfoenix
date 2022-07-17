@@ -13,7 +13,7 @@ public class MainApp extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getClassLoader().getResource("fxml/Main-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getClassLoader().getResource("fxml/main/Main-view.fxml"));
 
         double width = 800;
         double heigh = 600;

@@ -1,4 +1,4 @@
-package com.example.fxjfoenix2;
+package com.example.fxjfoenix2.hello.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
