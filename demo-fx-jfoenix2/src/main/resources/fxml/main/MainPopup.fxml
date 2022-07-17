@@ -2,24 +2,24 @@
 
 <?import com.jfoenix.controls.JFXListView?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.StackPane?>
-<?import org.kordamp.ikonli.javafx.FontIcon?>
-<JFXListView fx:id="toolbarPopupList" styleClass="option-list-view"
-             onMouseClicked="#submit" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<!--<?import javafx.scene.layout.StackPane?>-->
+<!--<?import org.kordamp.ikonli.javafx.FontIcon?>-->
+<JFXListView fx:id="toolbarPopupList" xmlns="http://javafx.com/javafx/8"
+             xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fxjfoenix2.main.controller.MainPopController">
     <Label>
         Contact Us
-        <graphic>
-            <StackPane styleClass="custom-jfx-list-view-icon-container">
-                <FontIcon iconLiteral="far-user" iconSize="18" styleClass="option-jfx-list-view-icon"/>
-            </StackPane>
-        </graphic>
+<!--        <graphic>-->
+<!--            <StackPane styleClass="custom-jfx-list-view-icon-container">-->
+<!--                <FontIcon iconLiteral="far-user" iconSize="18" styleClass="option-jfx-list-view-icon"/>-->
+<!--            </StackPane>-->
+<!--        </graphic>-->
     </Label>
     <Label>
         Exit
-        <graphic>
-            <StackPane styleClass="custom-jfx-list-view-icon-container">
-                <FontIcon iconLiteral="fas-reply" iconSize="18" styleClass="option-jfx-list-view-icon"/>
-            </StackPane>
-        </graphic>
+<!--        <graphic>-->
+<!--            <StackPane styleClass="custom-jfx-list-view-icon-container">-->
+<!--                <FontIcon iconLiteral="fas-reply" iconSize="18" styleClass="option-jfx-list-view-icon"/>-->
+<!--            </StackPane>-->
+<!--        </graphic>-->
     </Label>
 </JFXListView>

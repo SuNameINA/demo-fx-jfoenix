@@ -5,6 +5,7 @@ import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.controls.JFXPopup;
 import javafx.animation.Transition;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.StackPane;
 
 import java.io.IOException;
@@ -51,15 +52,15 @@ public class MainController {
             }
         });
 
-//        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/Main-Pop.fxml"));
-//        toolbarPopup = new JFXPopup(loader.load());
-//        optionsBurger.setOnMouseClicked(e -> {
-//            toolbarPopup.show(optionsBurger,
-//                    JFXPopup.PopupVPosition.TOP,
-//                    JFXPopup.PopupHPosition.RIGHT,
-//                    -12,
-//                    15);
-//        });
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/main/MainPopup.fxml"));
+        toolbarPopup = new JFXPopup(loader.load());
+        optionsBurger.setOnMouseClicked(e -> {
+            toolbarPopup.show(optionsBurger,
+                    JFXPopup.PopupVPosition.TOP,
+                    JFXPopup.PopupHPosition.RIGHT,
+                    -12,
+                    15);
+        });
     }
 
     private void changeHamburger(JFXHamburger hamburger, int rate) {
