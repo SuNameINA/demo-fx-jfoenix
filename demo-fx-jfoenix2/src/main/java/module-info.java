@@ -11,6 +11,7 @@ module com.example.fxjfoenix2 {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
     requires com.jfoenix;
+//    requires org.kordamp.ikonli.javafx;
 
     exports com.example.fxjfoenix2;
     exports com.example.fxjfoenix2.main.controller;

@@ -11,7 +11,7 @@ public class MainPopController {
     @FXML
     private JFXListView<?> toolbarPopupList;
 
-    @FXML
+//    @FXML
     public void initialize() throws IOException {
         toolbarPopupList.setOnMouseClicked(e -> {
             if (toolbarPopupList.getSelectionModel().getSelectedIndex() == 1) {
