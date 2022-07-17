@@ -11,11 +11,14 @@ module com.example.fxjfoenix2 {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
     requires com.jfoenix;
-//    requires org.kordamp.ikonli.javafx;
+    requires javafx.base;
 
     exports com.example.fxjfoenix2;
     exports com.example.fxjfoenix2.main.controller;
     exports com.example.fxjfoenix2.hello.controller;
+
+//    exports com.sun.javafx.event to com.jfoenix;
+    //--add-exports javafx.base/com.sun.javafx.event=com.jfoenix
 
     opens com.example.fxjfoenix2;
     opens com.example.fxjfoenix2.main.controller;
@@ -24,5 +27,6 @@ module com.example.fxjfoenix2 {
     opens fxml.main;
     opens fxml.hello;
     opens css;
+
 
 }

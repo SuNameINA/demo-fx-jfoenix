@@ -3,10 +3,13 @@ package com.example.fxjfoenix2.main.controller;
 import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.controls.JFXPopup;
+import com.jfoenix.controls.JFXTooltip;
 import javafx.animation.Transition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.layout.StackPane;
+import javafx.util.Duration;
 
 import java.io.IOException;
 
@@ -30,16 +33,17 @@ public class MainController {
     @FXML
     public void initialize() throws IOException {
         System.out.println("1111111111111111111");
-//        titleBurgerRate = titleBurgerRate * -1;
-//        this.changeHamburger(titleBurger, titleBurgerRate);
+        final JFXTooltip burgerTooltip = new JFXTooltip("Open drawer");
 
         drawer.setOnDrawerOpening(e -> {
             System.out.printf("drawer.onDrawerOpening...");
+            burgerTooltip.setText("Close drawer");
             this.changeHamburger(titleBurger, 1);
         });
 
         drawer.setOnDrawerClosing(e -> {
             System.out.printf("drawer.setOnDrawerClosing");
+            burgerTooltip.setText("Open drawer");
             this.changeHamburger(titleBurger, -1);
 
         });
@@ -52,6 +56,7 @@ public class MainController {
             }
         });
 
+
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/main/MainPopup.fxml"));
         toolbarPopup = new JFXPopup(loader.load());
         optionsBurger.setOnMouseClicked(e -> {
@@ -61,6 +66,9 @@ public class MainController {
                     -12,
                     15);
         });
+        JFXTooltip.setVisibleDuration(Duration.millis(3000));
+        JFXTooltip.install(titleBurgerContainer, burgerTooltip, Pos.BOTTOM_CENTER);
+
     }
 
     private void changeHamburger(JFXHamburger hamburger, int rate) {
