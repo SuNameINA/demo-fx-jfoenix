@@ -69,6 +69,8 @@ public class MainController {
         JFXTooltip.setVisibleDuration(Duration.millis(3000));
         JFXTooltip.install(titleBurgerContainer, burgerTooltip, Pos.BOTTOM_CENTER);
 
+        FXMLLoader drawerContentLoader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/main/Button.fxml"));
+        drawer.setContent((StackPane)drawerContentLoader.load());
     }
 
     private void changeHamburger(JFXHamburger hamburger, int rate) {
