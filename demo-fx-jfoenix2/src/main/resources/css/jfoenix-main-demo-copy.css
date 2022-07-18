@@ -14,11 +14,11 @@
 
 
 
-
-
-
-
-
+.title-label {
+    -fx-font-size: 16.0px;
+    -fx-padding: 14.0px;
+    -fx-text-fill: rgba(0.0, 0.0, 0.0, 0.87);
+}
 
 
 
@@ -315,24 +315,24 @@
 
 
 
+/*******************************************************************************
+*                                                                              *
+* JFX Button                                                                   *
+*                                                                              *
+*******************************************************************************/
 
+/*.custom-jfx-button-raised .jfx-rippler {*/
+/*    -jfx-rippler-fill: YELLOW;*/
+/*}*/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.custom-jfx-button-raised {
+    -fx-padding: 0.7em 0.57em;
+    -fx-font-size: 14.0px;
+    -jfx-button-type: RAISED;
+    -fx-background-color: rgb(102.0, 153.0, 102.0);
+    -fx-pref-width: 200.0;
+    -fx-text-fill: WHITE;
+}
 
 
 

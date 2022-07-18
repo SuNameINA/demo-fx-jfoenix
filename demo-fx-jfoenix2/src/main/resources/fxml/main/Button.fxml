@@ -10,8 +10,8 @@
 <StackPane fx:id="root" xmlns="http://javafx.com/javafx/2.2"
            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fxjfoenix2.main.controller.ButtonController">
     <VBox maxWidth="400" maxHeight="400" spacing="10">
-        <Label>Flat Buttons</Label>
-        <HBox spacing="40">
+        <Label styleClass="title-label">Flat Buttons</Label>
+        <HBox spacing="20" style="-fx-padding: 0 0 0 50;">
             <JFXButton prefWidth="100" prefHeight="40" buttonType="FLAT" text="BUTTON"
                        style="-fx-font-size:14px;"/>
             <JFXButton prefWidth="100" prefHeight="40" buttonType="FLAT" text="COLORED"
@@ -20,10 +20,20 @@
                        style="-fx-font-size: 14px;" disable="true"/>
         </HBox>
 
-        <Label>Raised Button</Label>
-        <HBox></HBox>
+        <Label styleClass="title-label">Raised Button</Label>
+        <HBox spacing="40" style="-fx-padding: 0 0 0 50">
+            <JFXButton prefWidth="100" prefHeight="40" buttonType="RAISED" text="BUTTON"
+                       style="-fx-font-size: 14px;-fx-background-color: WHITE"/>
+            <JFXButton prefWidth="100" prefHeight="40" buttonType="RAISED" text="COLORED"
+                       style="-fx-font-size: 14px;-fx-background-color: #5264AE;-fx-text-fill: WHITE"/>
+            <JFXButton prefWidth="100" prefHeight="40" buttonType="RAISED" text="DISABLED"
+                       style="-fx-font-size: 14px;-fx-background-color: WHITE" disable="true"/>
+        </HBox>
 
-        <Label>Styling Options</Label>
-        <HBox></HBox>
+        <Label styleClass="title-label">Styling Options</Label>
+        <HBox spacing="20" style="-fx-padding: 0 0 0 50">
+            <JFXButton prefWidth="100" prefHeight="40" buttonType="RAISED" text="CUSTOM RIPPLER"
+                       styleClass="custom-jfx-button-raised"/>
+        </HBox>
     </VBox>
 </StackPane>
