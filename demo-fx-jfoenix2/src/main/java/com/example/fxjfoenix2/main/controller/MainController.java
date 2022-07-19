@@ -11,8 +11,6 @@ import javafx.geometry.Pos;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 
-import java.io.IOException;
-
 public class MainController {
 
 
@@ -31,7 +29,7 @@ public class MainController {
     private StackPane optionsBurger;
 
     @FXML
-    public void initialize() throws IOException {
+    public void initialize() throws Exception {
         System.out.println("1111111111111111111");
         final JFXTooltip burgerTooltip = new JFXTooltip("Open drawer");
 
@@ -69,8 +67,8 @@ public class MainController {
         JFXTooltip.setVisibleDuration(Duration.millis(3000));
         JFXTooltip.install(titleBurgerContainer, burgerTooltip, Pos.BOTTOM_CENTER);
 
-        FXMLLoader drawerContentLoader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/main/Button.fxml"));
-        drawer.setContent((StackPane)drawerContentLoader.load());
+        SideMenuController.setDrawContent(drawer);
+        SideMenuController.setDrawSidePane(drawer);
     }
 
     private void changeHamburger(JFXHamburger hamburger, int rate) {
