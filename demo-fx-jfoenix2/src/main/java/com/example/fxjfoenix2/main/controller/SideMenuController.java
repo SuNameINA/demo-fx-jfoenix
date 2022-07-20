@@ -20,12 +20,19 @@ public class SideMenuController {
 
     private Map<String, Node> labelIdAndNodeMap;
 
-    public void initialize() throws IOException {
+    public void initialize() throws Exception {
         sideList.getItems().stream().forEach(label -> {
-            if ("button".equals(label.getId())) {
-                labelIdAndNodeMap.put(label.getId(), defaultDisplayNode);
-            } else {
-
+            try {
+                switch (label.getId()) {
+                    case "button":
+                        labelIdAndNodeMap.put(label.getId(), defaultDisplayNode);
+                        break;
+                    case "checkbox":
+                        labelIdAndNodeMap.put(label.getId(), SideMenuController.load("fxml/main/Checkbox.fxml"));
+                        break;
+                }
+            } catch (Exception ex) {
+                throw new RuntimeException(ex);
             }
         });
     }
