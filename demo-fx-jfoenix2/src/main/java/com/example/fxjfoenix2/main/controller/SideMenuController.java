@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 
 public class SideMenuController {
@@ -18,7 +19,7 @@ public class SideMenuController {
 
     private static Node defaultDisplayNode;
 
-    private Map<String, Node> labelIdAndNodeMap;
+    private static Map<String, Node> labelIdAndNodeMap = new HashMap<>();
 
     public void initialize() throws Exception {
         sideList.getItems().stream().forEach(label -> {
@@ -45,7 +46,8 @@ public class SideMenuController {
                 JFXListView<Label> sideList = (JFXListView<Label>) node;
                 sideList.getSelectionModel().selectedItemProperty().addListener((observableValue, oldLabel, newLabel) -> {
                     System.out.println(newLabel.getId());
-//                    drawer.setContent(null);
+                    drawer.setContent(labelIdAndNodeMap.get(newLabel.getId()));
+
                 });
                 System.out.println("sideList................" + sideList.getItems().get(0));
             }

@@ -344,23 +344,20 @@
 
 
 
+.custom-jfx-check-box {
+    -jfx-checked-color: RED;
+    -jfx-unchecked-color: BLACK;
+}
 
+.custom-jfx-check-box-all-colored {
+    -jfx-checked-color: #5264AE;
+    -jfx-unchecked-color: #5264AE;
+    -fx-text-fill: #5264AE;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.custom-jfx-check-box-text-colored {
+    -fx-text-fill: rgb(153.0, 0.0, 0.0);
+}
 
 
 

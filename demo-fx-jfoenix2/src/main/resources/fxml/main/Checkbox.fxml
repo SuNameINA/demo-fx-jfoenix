@@ -1,14 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import com.jfoenix.controls.JFXButton?>
+<StackPane fx:id="root" xmlns="http://javafx.com/javafx/2.2"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.example.fxjfoenix2.main.controller.CheckBoxController">
+    <HBox spacing="100" maxWidth="400" maxHeight="300">
+        <VBox spacing="20">
+            <children>
+                <Label styleClass="title-label">CheckBox</Label>
+                <JFXCheckBox fx:id="checkBox1" text="Notifications"></JFXCheckBox>
+                <JFXCheckBox fx:id="checkBox2" text="Auto Updates"></JFXCheckBox>
+                <JFXCheckBox fx:id="checkBox3" text="Auto Updates"></JFXCheckBox>
+                <JFXButton fx:id="button1" text="click" buttonType="RAISED" style="-fx-background-color: WHITE"/>
+            </children>
+        </VBox>
 
-<StackPane fx:id="root" xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="fxml.main.Checkbox"
-            prefHeight="400.0" prefWidth="600.0">
+        <VBox spacing="20">
+            <Label styleClass="title-label">Style Options</Label>
+            <JFXCheckBox text="Notifications" styleClass="custom-jfx-check-box"></JFXCheckBox>
+            <JFXCheckBox text="Auto Updates" styleClass="custom-jfx-check-box-all-colored"></JFXCheckBox>
+            <JFXCheckBox text="Clear History" styleClass="custom-jfx-check-box-text-colored"></JFXCheckBox>
 
+        </VBox>
+    </HBox>
 </StackPane>
