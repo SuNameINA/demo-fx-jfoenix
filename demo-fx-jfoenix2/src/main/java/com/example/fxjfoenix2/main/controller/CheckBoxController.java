@@ -23,41 +23,59 @@ public class CheckBoxController {
     @FXML
     private JFXButton button1;
 
-    Set<JFXCheckBox> selectedChekBox = new HashSet<>();
+    private Set<JFXCheckBox> selectedChekBox = new HashSet<>();
+
+    private Set<JFXCheckBox> allChekBox = new HashSet<>();
 
     public void initialize() throws Exception {
-        checkBox1.selectedProperty().addListener(new ChangeListener<Boolean>() {
-            @Override
-            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
-                if (newValue.equals(Boolean.TRUE)) {
-                    selectedChekBox.add(checkBox1);
-                } else {
-                    selectedChekBox.remove(checkBox1);
-                }
-            }
-        });
+//        checkBox1.selectedProperty().addListener(new ChangeListener<Boolean>() {
+//            @Override
+//            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+//                if (newValue.equals(Boolean.TRUE)) {
+//                    selectedChekBox.add(checkBox1);
+//                } else {
+//                    selectedChekBox.remove(checkBox1);
+//                }
+//            }
+//        });
+//
+//        checkBox2.selectedProperty().addListener(new ChangeListener<Boolean>() {
+//            @Override
+//            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+//                if (newValue.equals(Boolean.TRUE)) {
+//                    selectedChekBox.add(checkBox2);
+//                } else {
+//                    selectedChekBox.remove(checkBox2);
+//                }
+//            }
+//        });
+//
+//        checkBox3.selectedProperty().addListener(new ChangeListener<Boolean>() {
+//            @Override
+//            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+//                if (newValue.equals(Boolean.TRUE)) {
+//                    selectedChekBox.add(checkBox3);
+//                } else {
+//                    selectedChekBox.remove(checkBox3);
+//                }
+//            }
+//        });
 
-        checkBox2.selectedProperty().addListener(new ChangeListener<Boolean>() {
-            @Override
-            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
-                if (newValue.equals(Boolean.TRUE)) {
-                    selectedChekBox.add(checkBox2);
-                } else {
-                    selectedChekBox.remove(checkBox2);
+        allChekBox.add(checkBox1);
+        allChekBox.add(checkBox2);
+        allChekBox.add(checkBox3);
+        for (JFXCheckBox checkBox : allChekBox) {
+            checkBox.selectedProperty().addListener(new ChangeListener<Boolean>() {
+                @Override
+                public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+                    if (newValue.equals(Boolean.TRUE)) {
+                        selectedChekBox.add(checkBox);
+                    } else {
+                        selectedChekBox.remove(checkBox);
+                    }
                 }
-            }
-        });
-
-        checkBox3.selectedProperty().addListener(new ChangeListener<Boolean>() {
-            @Override
-            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
-                if (newValue.equals(Boolean.TRUE)) {
-                    selectedChekBox.add(checkBox3);
-                } else {
-                    selectedChekBox.remove(checkBox3);
-                }
-            }
-        });
+            });
+        }
         button1.setOnMouseClicked(e -> {
             StringBuilder builder = new StringBuilder();
 //            if (checkBox1.isSelected()) {
