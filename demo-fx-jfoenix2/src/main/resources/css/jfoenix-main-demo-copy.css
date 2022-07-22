@@ -474,10 +474,13 @@
 
 
 
-
-
-
-
+.custom-jfx-list-view-icon,
+.jfx-list-cell:selected .label .custom-jfx-list-view-icon {
+    /*-fx-text-fill: #5264AE;*/
+    -fx-fill: #5264AE;
+    -fx-padding: 0.0 10.0 0.0 5.0;
+    -fx-cursor: hand;
+}
 
 .custom-jfx-list-view-icon-container {
     -fx-pref-width: 40px;
