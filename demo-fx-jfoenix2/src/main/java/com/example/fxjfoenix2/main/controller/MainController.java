@@ -67,7 +67,7 @@ public class MainController {
         JFXTooltip.setVisibleDuration(Duration.millis(3000));
         JFXTooltip.install(titleBurgerContainer, burgerTooltip, Pos.BOTTOM_CENTER);
 
-        SideMenuController.setDrawContent(drawer);
+//        SideMenuController.setDrawContent(drawer);
         SideMenuController.setDrawSidePane(drawer);
     }
 

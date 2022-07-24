@@ -5,11 +5,14 @@ import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXListView;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
+import javafx.scene.effect.BlendMode;
 import javafx.scene.layout.StackPane;
 
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -33,9 +36,9 @@ public class SideMenuController {
                     case "combobox":
                         labelIdAndNodeMap.put(label.getId(), SideMenuController.load(label.getId(), "fxml/main/Combobox.fxml"));
                         break;
-//                    case "combobox2":
-//                        labelIdAndNodeMap.put(label.getId(), SideMenuController.load(label.getId(), "fxml/main/Combobox2.fxml"));
-//                        break;
+                    case "combobox2":
+                        labelIdAndNodeMap.put(label.getId(), SideMenuController.load(label.getId(), "fxml/main/Combobox2.fxml"));
+                        break;
                 }
             } catch (Exception ex) {
                 throw new RuntimeException(ex);
@@ -51,21 +54,14 @@ public class SideMenuController {
                 JFXListView<Label> sideList = (JFXListView<Label>) node;
                 sideList.getSelectionModel().selectedItemProperty().addListener((observableValue, oldLabel, newLabel) -> {
                     System.out.println(newLabel.getId());
-                    labelIdAndNodeMap.get(newLabel.getId());
-                    drawer.setContent(labelIdAndNodeMap.get(newLabel.getId()).getNode());
-
+                    SideContentNodeBO nodeBO = labelIdAndNodeMap.get(newLabel.getId());
+                    drawer.setContent(nodeBO.getNode());
                 });
                 System.out.println("sideList................" + sideList.getItems().get(0));
             }
         });
         drawer.setSidePane(sideMenuStackPane);
     }
-
-//    public static void setDrawContent(JFXDrawer drawer) throws Exception {
-//        FXMLLoader drawerContentLoader = new FXMLLoader(SideMenuController.class.getClassLoader().getResource("fxml/main/Button.fxml"));
-//        defaultDisplayNode = SideMenuController.load("button", );
-//        drawer.setContent(defaultDisplayNode);
-//    }
 
     private static SideContentNodeBO load(String id, String viewPath) throws IOException {
         SideContentNodeBO nodeBO = new SideContentNodeBO();
@@ -75,4 +71,5 @@ public class SideMenuController {
         nodeBO.setNode(nodeBO.getLoader().load());
         return nodeBO;
     }
+
 }

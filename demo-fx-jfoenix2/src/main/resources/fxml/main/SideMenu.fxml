@@ -15,6 +15,7 @@
         <Label fx:id="button">Buttons</Label>
         <Label fx:id="checkbox">Check Box</Label>
         <Label fx:id="combobox">Combo Box</Label>
+        <Label fx:id="combobox2">Combo Box2</Label>
         <Label fx:id="dialogs">Dialogs &amp; Alert</Label>
         <Label fx:id="icons">Icons</Label>
         <Label fx:id="scrollpane">Header Scroll Pane</Label>

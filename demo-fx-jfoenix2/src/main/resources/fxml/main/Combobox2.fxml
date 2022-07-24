@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.validation.RequiredFieldValidator?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.*?>
+<StackPane fx:id="root" xmlns="http://javafx.com/javafx/2.2"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.example.fxjfoenix2.main.controller.Combobox2Controller">
+    <HBox spacing="100" maxWidth="500" maxHeight="300" alignment="BASELINE_CENTER">
+        <VBox spacing="20">
+            <Label styleClass="title-label">Combo Box</Label>
+
+            <JFXComboBox fx:id="jfxComboBox" prefWidth="200" promptText="Select Item">
+                <validators>
+                    <RequiredFieldValidator message="Input Required!">
+                        <FontIcon iconLiteral="fas-exclamation-triangle" styleClass="error-icon"/>
+                    </RequiredFieldValidator>
+                </validators>
+            </JFXComboBox>
+        </VBox>
+
+    </HBox>
+</StackPane>
