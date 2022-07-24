@@ -39,6 +39,9 @@ public class SideMenuController {
                     case "combobox2":
                         labelIdAndNodeMap.put(label.getId(), SideMenuController.load(label.getId(), "fxml/main/Combobox2.fxml"));
                         break;
+                    case "dialogs":
+                        labelIdAndNodeMap.put(label.getId(), SideMenuController.load(label.getId(), "fxml/main/Dialog.fxml"));
+                        break;
                 }
             } catch (Exception ex) {
                 throw new RuntimeException(ex);

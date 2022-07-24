@@ -50,22 +50,21 @@
 
 
 
+.dialog-trigger {
+    -fx-background-color: WHITE;
+    -jfx-button-type: RAISED;
+    -fx-font-size: 14.0px;
+}
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
+.dialog-accept {
+    -fx-text-fill: #03A9F4;
+    -fx-font-weight: BOLD;
+    -fx-padding: 0.7em 0.8em;
+}
 
 
 
