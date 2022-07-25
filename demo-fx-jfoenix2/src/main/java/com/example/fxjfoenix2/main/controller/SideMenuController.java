@@ -42,6 +42,9 @@ public class SideMenuController {
                     case "dialogs":
                         labelIdAndNodeMap.put(label.getId(), SideMenuController.load(label.getId(), "fxml/main/Dialog.fxml"));
                         break;
+                    case "icons":
+                        labelIdAndNodeMap.put(label.getId(), SideMenuController.load(label.getId(), "fxml/main/Icons.fxml"));
+                        break;
                 }
             } catch (Exception ex) {
                 throw new RuntimeException(ex);

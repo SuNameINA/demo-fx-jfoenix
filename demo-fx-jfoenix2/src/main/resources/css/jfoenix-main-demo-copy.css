@@ -97,34 +97,36 @@
 
 
 
+/*******************************************************************************
+ *                                                                             *
+ * JFX Icons                                                                   *
+ *                                                                             *
+ ******************************************************************************/
+
+.icon {
+    -fx-fill: #FE774D;
+    -fx-padding: 10.0;
+    -fx-cursor: hand;
+}
+
+.icons-rippler {
+    -jfx-rippler-fill: #FE774D;
+    -jfx-mask-type: CIRCLE;
+}
+
+.icons-rippler1 {
+    -jfx-rippler-fill: #4285F4;
+    -jfx-mask-type: CIRCLE;
+}
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.animated-burgers .jfx-hamburger StackPane{
+    -fx-background-color: #5264AE;
+    -fx-background-radius: 4px;
+}
 
 
 
