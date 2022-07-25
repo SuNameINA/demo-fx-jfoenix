@@ -45,6 +45,9 @@ public class SideMenuController {
                     case "icons":
                         labelIdAndNodeMap.put(label.getId(), SideMenuController.load(label.getId(), "fxml/main/Icons.fxml"));
                         break;
+                    case "scrollpane":
+                        labelIdAndNodeMap.put(label.getId(), SideMenuController.load(label.getId(), "fxml/main/Scrollpane.fxml"));
+                        break;
                 }
             } catch (Exception ex) {
                 throw new RuntimeException(ex);
