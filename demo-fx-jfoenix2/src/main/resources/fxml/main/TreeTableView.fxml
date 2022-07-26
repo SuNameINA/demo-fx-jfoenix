@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<StackPane fx:id="" xmlns="http://javafx.com/javafx/2.2"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.example.fxjfoenix2.main.controller.TreeTableViewController">
+    <VBox maxWidth="600" maxHeight="600" spacing="10">
+        <children></children>
+    </VBox>
+</StackPane>
