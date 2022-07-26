@@ -1,8 +1,11 @@
 package com.example.fxjfoenix2.main.controller;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXListView;
+import com.jfoenix.controls.JFXScrollPane;
 import com.jfoenix.svg.SVGGlyph;
 import javafx.fxml.FXML;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.paint.Color;
 
 public class ScrollPaneController {
@@ -10,7 +13,21 @@ public class ScrollPaneController {
     @FXML
     private JFXButton backButton;
 
+    @FXML
+    private JFXListView contentList;
+
+    @FXML
+    private JFXScrollPane scroll;
+
     public void initialize() throws Exception {
+
+        for (int i = 0; i < 100; i++) {
+            contentList.getItems().add("Item " + i);
+        }
+        contentList.setMaxHeight(3400);
+
+        JFXScrollPane.smoothScrolling((ScrollPane) scroll.getChildren().get(0));
+
         SVGGlyph arrow = new SVGGlyph(0,
                 "FULLSCREEN",
                 "M402.746 877.254l-320-320c-24.994-24.992-24.994-65.516 0-90.51l320-320c24.994-24.992 65.516-24.992 90.51 0 24.994 24.994 "

@@ -2,8 +2,10 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXScrollPane?>
-<?import javafx.scene.layout.StackPane?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXListView?>
 <StackPane fx:id="root" xmlns="http://javafx.com/javafx/2.2"
            xmlns:fx="http://javafx.com/fxml/1"
            fx:controller="com.example.fxjfoenix2.main.controller.ScrollPaneController">
@@ -23,10 +25,26 @@
             </children>
         </topBar>
 
-        <bottomBar></bottomBar>
+        <bottomBar>
+            <children>
+                <Label style="-fx-text-fill: WHITE;-fx-font-size: 40;">
+                    Store
+                    <StackPane.alignment>CENTER_LEFT</StackPane.alignment>
+                    <StackPane.margin>
+                        <Insets>
+                            <left>
+                                80
+                            </left>
+                        </Insets>
+                    </StackPane.margin>
+                </Label>
+            </children>
+        </bottomBar>
 
         <content>
-
+            <StackPane style="-fx-padding: 24;">
+                <JFXListView fx:id="contentList" prefHeight="Infinity"/>
+            </StackPane>
         </content>
     </JFXScrollPane>
 </StackPane>
