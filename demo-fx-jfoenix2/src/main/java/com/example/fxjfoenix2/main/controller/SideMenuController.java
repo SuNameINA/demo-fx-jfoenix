@@ -48,6 +48,9 @@ public class SideMenuController {
                     case "scrollpane":
                         labelIdAndNodeMap.put(label.getId(), SideMenuController.load(label.getId(), "fxml/main/Scrollpane.fxml"));
                         break;
+                    case "treetableview":
+                        labelIdAndNodeMap.put(label.getId(), SideMenuController.load(label.getId(), "fxml/main/TreeTableView.fxml"));
+                        break;
                 }
             } catch (Exception ex) {
                 throw new RuntimeException(ex);
