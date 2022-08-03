@@ -16,6 +16,7 @@ module com.example.fxjfoenix2 {
     exports com.example.fxjfoenix2;
     exports com.example.fxjfoenix2.main.controller;
     exports com.example.fxjfoenix2.main.model.bo;
+    exports com.example.fxjfoenix2.main.model.entity;
     exports com.example.fxjfoenix2.hello.controller;
 
 //    exports com.sun.javafx.event to com.jfoenix;
