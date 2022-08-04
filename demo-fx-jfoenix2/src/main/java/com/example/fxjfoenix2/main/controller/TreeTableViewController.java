@@ -6,6 +6,7 @@ import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.IntegerProperty;
+import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -84,7 +85,7 @@ public class TreeTableViewController {
             IntegerProperty currentItem = treeTableView.currentItemsCountProperty();
             currentItem.set(currentItem.get() + 1);
 
-            if(persons.size() == 1) {
+            if (persons.size() == 1) {
                 treeTableViewRemove.setDisable(true);
             } else if (treeTableView.getSelectionModel().getSelectedIndex() > 0) {
                 treeTableViewRemove.setDisable(false);
@@ -108,13 +109,14 @@ public class TreeTableViewController {
 //                .bind(Bindings.createBooleanBinding(() -> removeDisable.get(), removeDisable));
 
         treeTableView.addEventHandler(EventType.ROOT, event -> {
-            if(!persons.isEmpty() && treeTableView.getSelectionModel().getSelectedIndex() > 0) {
+            if (!persons.isEmpty() && treeTableView.getSelectionModel().getSelectedIndex() > 0) {
                 treeTableViewRemove.setDisable(false);
             }
         });
 
         treeTableViewRemove.setDisable(true);
 
+        searchField.textProperty().addListener(this.setupSearchField(treeTableView));
     }
 
     private void setupEditableTableView() {
@@ -143,6 +145,17 @@ public class TreeTableViewController {
                 return column.getComputedValue(param);
             }
         });
+    }
+
+    private ChangeListener<String> setupSearchField(JFXTreeTableView<Person> tableView) {
+        return (observable, oldValue, newValue) -> {
+            tableView.setPredicate(personProp -> {
+                Person person = personProp.getValue();
+                return person.getFirstName().contains(newValue)
+                        || person.getLastName().contains(newValue)
+                        || Integer.toString(person.getAge()).contains(newValue);
+            });
+        };
     }
 
 }
