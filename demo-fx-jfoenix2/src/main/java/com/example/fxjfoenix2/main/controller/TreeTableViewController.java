@@ -4,10 +4,12 @@ import com.example.fxjfoenix2.main.model.entity.Person;
 import com.jfoenix.controls.*;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import javafx.beans.binding.Bindings;
+import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TreeTableColumn;
@@ -50,6 +52,8 @@ public class TreeTableViewController {
     @FXML
     private JFXTextField searchField;
 
+    private BooleanProperty removeDisable;
+
     private final String[] names = {"Morley", "Scott", "Kruger", "Lain",
             "Kennedy", "Gawron", "Han", "Hall", "Aydogdu", "Grace",
             "Spiers", "Perera", "Smith", "Connoly",
@@ -79,32 +83,37 @@ public class TreeTableViewController {
             persons.add(this.createNewRandomPerson());
             IntegerProperty currentItem = treeTableView.currentItemsCountProperty();
             currentItem.set(currentItem.get() + 1);
-            treeTableViewRemove.disableProperty().set(false);
+
+            if(persons.size() == 1) {
+                treeTableViewRemove.setDisable(true);
+            } else if (treeTableView.getSelectionModel().getSelectedIndex() > 0) {
+                treeTableViewRemove.setDisable(false);
+            }
         });
         treeTableViewRemove.setOnMouseClicked((e) -> {
-            System.out.println("treeTableView.getSelectionModel().selectedIndexProperty():" + treeTableView.getSelectionModel().selectedIndexProperty().get());
             persons.remove(treeTableView.getSelectionModel().selectedItemProperty().get().getValue());
             IntegerProperty currentItem = treeTableView.currentItemsCountProperty();
             if (currentItem.get() > 0) {
                 currentItem.set(currentItem.get() - 1);
             }
-            if (currentItem.get() <= 0) {
-                treeTableViewRemove.disableProperty().set(true);
+
+            if (persons.isEmpty()) {
+                treeTableViewRemove.setDisable(true);
             }
-            searchField.requestFocus();
-//            treeTableView.focusModelProperty().
-//            root.requestFocus();
-//            if(currentItem.get() == 0) {
-//                treeTableViewRemove.disableProperty().set(true);
-//            }
         });
-        treeTableViewRemove.disableProperty().set(true);
 
         treeTableViewAdd.disableProperty()
                 .bind(Bindings.lessThan(9, treeTableView.currentItemsCountProperty()));
 //        treeTableViewRemove.disableProperty()
-//                .bind(Bindings.isEmpty(treeTableView.getSelectionModel().selectionModeProperty()));
+//                .bind(Bindings.createBooleanBinding(() -> removeDisable.get(), removeDisable));
 
+        treeTableView.addEventHandler(EventType.ROOT, event -> {
+            if(!persons.isEmpty() && treeTableView.getSelectionModel().getSelectedIndex() > 0) {
+                treeTableViewRemove.setDisable(false);
+            }
+        });
+
+        treeTableViewRemove.setDisable(true);
 
     }
 
