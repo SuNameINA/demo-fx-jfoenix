@@ -2,6 +2,9 @@ package com.example.fxjfoenix2.main.controller;
 
 import com.example.fxjfoenix2.main.model.entity.Person;
 import com.jfoenix.controls.*;
+import com.jfoenix.controls.cells.editors.IntegerTextFieldEditorBuilder;
+import com.jfoenix.controls.cells.editors.TextFieldEditorBuilder;
+import com.jfoenix.controls.cells.editors.base.GenericEditableTreeTableCell;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.BooleanProperty;
@@ -33,16 +36,31 @@ public class TreeTableViewController {
     private JFXTreeTableView<Person> treeTableView;
 
     @FXML
-    private JFXTreeTableColumn firstNameColumn;
+    private JFXTreeTableColumn<Person, String> firstNameColumn;
 
     @FXML
-    private JFXTreeTableColumn lastNameColumn;
+    private JFXTreeTableColumn<Person, String> lastNameColumn;
 
     @FXML
-    private JFXTreeTableColumn ageColumn;
+    private JFXTreeTableColumn<Person, Integer> ageColumn;
+
+    @FXML
+    private JFXTreeTableView<Person> editableTreeTableView;
+
+    @FXML
+    private JFXTreeTableColumn<Person, String> firstNameEditableColumn;
+
+    @FXML
+    private JFXTreeTableColumn<Person, String> lastNameEditableColumn;
+
+    @FXML
+    private JFXTreeTableColumn<Person, Integer> ageEditableColumn;
 
     @FXML
     private Label treeTableViewCount;
+
+    @FXML
+    private Label editableTreeTableViewCount;
 
     @FXML
     private JFXButton treeTableViewAdd;
@@ -52,6 +70,9 @@ public class TreeTableViewController {
 
     @FXML
     private JFXTextField searchField;
+
+    @FXML
+    private JFXTextField searchField2;
 
     private BooleanProperty removeDisable;
 
@@ -70,7 +91,7 @@ public class TreeTableViewController {
     private void setupReadOnlyTableView() {
         this.setupCellValueFactory(firstNameColumn, Person::firstNameProperty);
         this.setupCellValueFactory(lastNameColumn, Person::lastNameProperty);
-        this.setupCellValueFactory(ageColumn, Person::ageProperty);
+        this.setupCellValueFactory(ageColumn, person -> person.ageProperty().asObject());
 //        ObservableList<Person> persons = this.generatePersons(100);
         ObservableList<Person> persons = FXCollections.observableArrayList();
         treeTableView.setRoot(new RecursiveTreeItem<>(persons, RecursiveTreeObject::getChildren));
@@ -120,7 +141,40 @@ public class TreeTableViewController {
     }
 
     private void setupEditableTableView() {
+        this.setupCellValueFactory(firstNameEditableColumn, Person::firstNameProperty);
+        this.setupCellValueFactory(lastNameEditableColumn, Person::lastNameProperty);
+        this.setupCellValueFactory(ageEditableColumn, person -> person.ageProperty().asObject());
 
+        firstNameEditableColumn.setCellFactory(param -> new GenericEditableTreeTableCell<>(new TextFieldEditorBuilder()));
+        lastNameEditableColumn.setCellFactory(param -> new GenericEditableTreeTableCell<>(new TextFieldEditorBuilder()));
+        ageEditableColumn.setCellFactory(param -> new GenericEditableTreeTableCell<>(new IntegerTextFieldEditorBuilder()));
+
+        firstNameEditableColumn.setOnEditCommit(event -> {
+            event.getTreeTableView()
+                    .getTreeItem(event.getTreeTablePosition().getRow())
+                    .getValue().setFirstName(event.getNewValue());
+        });
+        lastNameEditableColumn.setOnEditCommit(event -> {
+            event.getTreeTableView()
+                    .getTreeItem(event.getTreeTablePosition().getRow())
+                    .getValue().setLastName(event.getNewValue());
+        });
+        ageEditableColumn.setOnEditCommit(event -> {
+            event.getTreeTableView()
+                    .getTreeItem(event.getTreeTablePosition().getRow())
+                    .getValue().setAge(event.getNewValue());
+        });
+
+        ObservableList<Person> persons = this.generatePersons(100);
+        editableTreeTableView.setRoot(new RecursiveTreeItem<>(persons, RecursiveTreeObject::getChildren));
+        editableTreeTableView.setShowRoot(false);
+        editableTreeTableView.setEditable(true);
+
+        editableTreeTableViewCount.textProperty()
+                .bind(Bindings.createStringBinding(() -> PREFIX + editableTreeTableView.getCurrentItemsCount() + POSTFIX,
+                        editableTreeTableView.currentItemsCountProperty()));
+
+        searchField2.textProperty().addListener(this.setupSearchField(editableTreeTableView));
     }
 
     ObservableList<Person> generatePersons(int count) {

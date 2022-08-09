@@ -41,4 +41,16 @@ public class Person extends RecursiveTreeObject<Person> {
     public SimpleIntegerProperty ageProperty() {
         return age;
     }
+
+    public void setFirstName(String firstName) {
+        this.firstName.set(firstName);
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName.set(lastName);
+    }
+
+    public void setAge(int age) {
+        this.age.set(age);
+    }
 }
